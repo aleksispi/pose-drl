@@ -1,0 +1,60 @@
+input: "feature_samples"
+input_dim: 1000
+input_dim: 128
+input_dim: 10
+input_dim: 1
+############################################
+layer {
+  name: "Mfc2_L5"
+  type: "InnerProduct"
+  # learning rate and decay multipliers for the weights
+  param { lr_mult: 1 decay_mult: 1 }
+  # learning rate and decay multipliers for the biases
+  param { lr_mult: 2 decay_mult: 0 }
+  inner_product_param {
+    num_output: 128
+    weight_filler {
+      type: "gaussian"
+      std: 0.01
+    }
+    bias_filler {
+      type: "constant"
+      value: 0
+    }
+  }
+  bottom: "feature_samples"
+  top: "fc2_L5"
+}
+layer {
+  name: "relu2_L5"
+  type: "ReLU"
+  bottom: "fc2_L5"
+  top: "fc2_L5"
+}
+layer {
+  name: "Mfc3_L5"
+  type: "InnerProduct"
+  # learning rate and decay multipliers for the weights
+  param { lr_mult: 1 decay_mult: 1 }
+  # learning rate and decay multipliers for the biases
+  param { lr_mult: 2 decay_mult: 0 }
+  inner_product_param {
+    num_output: 2
+    weight_filler {
+      type: "gaussian"
+      std: 0.01
+    }
+    bias_filler {
+      type: "constant"
+      value: 0
+    }
+  }
+  bottom: "fc2_L5"
+  top: "fc3_L5"
+}
+layer {
+	name: "Softmax"
+	type: "Softmax"
+	bottom: "fc3_L5"
+	top: "scores"
+}

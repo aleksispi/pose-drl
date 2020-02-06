@@ -1,0 +1,24 @@
+net: "models/agent/train_pose_drl_mubynet.prototxt"
+solver_mode: GPU
+
+display: 10000
+
+#test_iter: 1000
+#test_interval: 1000
+
+random_seed: 0
+
+type: "Adam"
+#0.000001
+base_lr: 5e-07
+gamma: 0.5
+lr_policy: "multistep"
+
+# momentum: 0.9
+# momentum2
+# delta
+weight_decay: 0
+# snapshot: 50000 # Never save from prototxt -- do it using matcaffe!
+# snapshot_prefix: "../rl-weights/"
+stepvalue: 18000
+stepvalue: 36000
