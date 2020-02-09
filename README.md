@@ -16,11 +16,11 @@ The Pose-DRL model in this repository uses [MubyNet](http://www.maths.lth.se/smi
 ### Citation
 If you find this implementation and/or our paper interesting or helpful, please consider citing:
 
-    @article{gartner2020deep,
-        Author = {Erik Gärtner, Aleksis Pirinen and Cristian Sminchisescu},
-        Title = {Deep Reinforcement Learning for Active Human Pose Estimation},
-        Journal = {AAAI},
-        Year = {2020}
+    @inproceedings{gartner2020activehpe,
+      title={Deep Reinforcement Learning for Active Human Pose Estimation},
+      author={G\"{a}rtner, Erik and Pirinen, Aleksis and Sminchisescu, Cristian},
+      booktitle={Proceedings of the AAAI Conference on Artificial Intelligence},
+      year={2020}
     }
 
 ## Setup
